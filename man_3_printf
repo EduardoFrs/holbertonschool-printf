@@ -1,0 +1,37 @@
+tris Holberton  _printf\-0.1
+
+.SH NAME 
+_printf
+
+.SH LIBRARY
+Own function
+
+
+.SH SYNOPSIS
+.B #include "main.h"
+.RB [\-j 
+.IR jelly ]
+.RB [ \-h
+.IR honey ]
+.RB [ \-p
+.R pickle ]
+
+.P 
+.BR _printf " ... " 
+
+.SH DESCRIPTION
+.BR _printf
+is a project from Holberton School. The goal is to recreate the printf function included in the standard C library.
+The _printf function recreates the original printf function: it produces an output according to a inputted format. 
+It takes 4 different format specifiers: c for char, s for string, d for decimal and i for integer.
+It returns the count. 
+ 
+.SH OPTIONS
+.TP 
+.B \-j
+
+.SH SEE ALSO
+This function is a re creation of the former printf function, in the standard C library. To see the manual, type man printf. To use printf, include the stdlib header. 
+
+
+i
