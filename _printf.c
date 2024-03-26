@@ -30,6 +30,33 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				i++;
 			}
+			else if (*format == 'd' || *format == 'i')
+			{
+ 				int d = va_arg(args, int);
+				if (d < 0) {
+					_putchar('-');
+					d = d * -1;
+				}
+				if (d >= 10) {
+					char digits[12];
+					int index = 0;
+					while (d > 0) 
+					{ 
+						int digit = d % 10;
+						digits[index] = digit;
+						index++;
+						d = d / 10;
+					}
+					while (index > 0) { 
+						index--;
+						_putchar('0' + digits[index]);
+					}
+					i++;
+				} else {
+					_putchar('0' + d);
+					i++;
+				}
+			}
 			else if (*format == 's')
 			{
 				char *s = va_arg(args, char *);
@@ -63,3 +90,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (i);
 }
+
