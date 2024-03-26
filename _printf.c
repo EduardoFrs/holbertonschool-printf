@@ -5,7 +5,7 @@
 /**
  * _printf - function that produce output according to a format
  * @format: character string
- *
+ * 
  * Return: the number of characters printed
 */
 
@@ -30,17 +30,6 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				i++;
 			}
-			
-			else if (*format == 's')
-			{
-				char *s = va_arg(args, char *);
-				while (*s)
-				{
-					_putchar(*s);
-					s++;
-					i++;
-				}
-			}
 			else if (*format == '%')
 			{
 				_putchar('%');
@@ -50,7 +39,7 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				_putchar(*format);
-				i++;
+				i += 2;
 			}
 		}
 		else
@@ -62,5 +51,5 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return (i);
+	return i;
 }
