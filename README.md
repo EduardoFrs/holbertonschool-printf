@@ -28,3 +28,84 @@ Prototype : int _printf(const char *format, ...);
     Use of global variables are not allowed.
     Header files should be include guarded.
     All files should end with a new line.
+
+## Examples
+* Character
+
+        #include "main.h"
+        #include <stdio.h>
+
+        int main(void)
+        {
+            _printf("c\n");
+
+            return (0);
+        }
+ Output : 
+
+    ./testchar
+    c
+
+* String
+        
+        #include "main.h"
+        #include <stdio.h>
+
+        int main(void)
+        {
+            _printf("String : [%s]\n", "Chong is the best SWE");
+        
+            return (0);
+        }
+Output :
+
+    ./teststring
+    String : [Chong is the best SWE]
+
+* %
+
+        #include "main.h"
+        #include <stdio.h>
+
+        int main(void)
+        {
+            _printf("%\n");
+
+            return (0);
+        }
+Output :
+
+    ./testpercent
+    %
+
+* Decimal / Integer
+
+        #include "main.h"
+        #include <stdio.h>
+
+        int main(void)
+        {
+            int len;
+
+            len = _printf("please give us a good rating.                                                                      \n");
+            _printf("Our rating : [%d/%i]\n", len, len);
+
+             return (0);
+        }
+
+Output :
+
+    ./testdec_int
+    please give us a good rating.
+    Our rating : [100/100]
+
+
+## Man page
+
+The [Man page](https://github.com/EduardoFrs/holbertonschool-printf/blob/main/man_3_printf) of the function can be checked here.
+
+
+## Flowchart
+## Authors
+* Lucas CHUONG DEBORT
+* Eduardo RIBEIRO FERNANDES
