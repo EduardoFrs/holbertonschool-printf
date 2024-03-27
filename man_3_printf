@@ -1,37 +1,71 @@
-tris Holberton  _printf\-0.1
+.TH _printf function 27.03.2024   _printf\-0.1
 
 .SH NAME 
-_printf
-
-.SH LIBRARY
-Own function
-
+_printf v0.1 2024 
 
 .SH SYNOPSIS
-.B #include "main.h"
-.RB [\-j 
-.IR jelly ]
-.RB [ \-h
-.IR honey ]
-.RB [ \-p
-.R pickle ]
-
-.P 
-.BR _printf " ... " 
+int_printf(const char *format, ...); - Must include the "main.h" header.
 
 .SH DESCRIPTION
-.BR _printf
-is a project from Holberton School. The goal is to recreate the printf function included in the standard C library.
-The _printf function recreates the original printf function: it produces an output according to a inputted format. 
-It takes 4 different format specifiers: c for char, s for string, d for decimal and i for integer.
-It returns the count. 
- 
+The function formats and prints the arguments according to the specified format string, which are the following:
+
+.SH CONVERSION SPECIFIERS
+.RB [\-c
+.IR char ]
+.RB [\-s 
+.IR string ]
+.RB [\-% 
+.IR % ]
+.RB [\-d 
+.IR decimals ]
+.RB [\-i 
+.IR integers ]
+
 .SH OPTIONS
 .TP 
-.B \-j
+.BR c
+Print a char
+.TP
+.BR s
+Print a string
+.TP
+.BR %%
+Print a single %
+.TP
+.BR i
+Print an integer
+.TP 
+.BR d
+Print a decimal
+
+.SH COMPILE COMMAND
+This function is compiled using the GNU Compiler Collection. 
+The command line is: 
+.B gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
+
+.SH HEADER FILE
+The header file to be included is the "main.h". 
+
+.SH RETURN VALUE
+The function returns the numbers of characters printed in case of success. In case of error, the function weill return a negative value and will exit.
+/bin/bash: line 1: q: command not found
+.SH EXAMPLE
+.TP
+.BR _printf("%i", 34); 
+Output: 34
+
+.TP
+.BR _printf("%s", "This is a string.");
+Output: This is a string.
+
+.TP
+.BR _printf("%d", -345); 
+Output: -345
+
+.TP
+.BR _printf("%%");
+Output: %
 
 .SH SEE ALSO
 This function is a re creation of the former printf function, in the standard C library. To see the manual, type man printf. To use printf, include the stdlib header. 
 
-
-i
