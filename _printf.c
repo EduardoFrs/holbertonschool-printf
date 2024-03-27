@@ -7,7 +7,7 @@
  * @format: character string
  *
  * Return: the number of characters printed
-*/
+ */
 
 int _printf(const char *format, ...)
 {
@@ -27,32 +27,40 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				int c = va_arg(args, int);
+
 				_putchar(c);
 				i++;
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
- 				int d = va_arg(args, int);
-				if (d < 0) {
+				int d = va_arg(args, int);
+
+				if (d < 0)
+				{
 					_putchar('-');
 					d = d * -1;
 				}
-				if (d >= 10) {
+				if (d >= 10)
+				{
 					char digits[12];
 					int index = 0;
-					while (d > 0) 
-					{ 
+
+					while (d > 0)
+					{
 						int digit = d % 10;
+
 						digits[index] = digit;
 						index++;
 						d = d / 10;
 					}
-					while (index > 0) { 
+					while (index > 0)
+					{
 						index--;
 						_putchar('0' + digits[index]);
 					}
 					i++;
-				} else {
+				} else
+				{
 					_putchar('0' + d);
 					i++;
 				}
@@ -60,6 +68,7 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				char *s = va_arg(args, char *);
+
 				while (*s)
 				{
 					_putchar(*s);
@@ -90,4 +99,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (i);
 }
-
