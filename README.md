@@ -1,3 +1,4 @@
+
 ## C - printf
 This project is implementing a function '_printf' that produces output according to a given format, he is similar to the standart 'printf' function in C. 
 
@@ -37,14 +38,14 @@ Prototype : int _printf(const char *format, ...);
 
         int main(void)
         {
-            _printf("c\n");
+            _printf("Character : [%c, %c]\n", 'c', 'C');
 
             return (0);
         }
  Output : 
 
     ./testchar
-    c
+    Character : [c, C]
 
 * String
         
@@ -69,14 +70,14 @@ Output :
 
         int main(void)
         {
-            _printf("%\n");
+            _printf("Percent : [%%]\n");
 
             return (0);
         }
 Output :
 
     ./testpercent
-    %
+    Percent : [%]
 
 * Decimal / Integer
 
