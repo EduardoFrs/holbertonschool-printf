@@ -107,6 +107,8 @@ The [Man page](https://github.com/EduardoFrs/holbertonschool-printf/blob/main/ma
 
 
 ## Flowchart
+
+![flowchart of function](https://github.com/EduardoFrs/holbertonschool-printf/blob/main/flowchart.JPG)
 ## Authors
 * Lucas CHUONG DEBORT
 * Eduardo RIBEIRO FERNANDES
