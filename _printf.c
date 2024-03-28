@@ -1,101 +1,77 @@
 #include "main.h"
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 /**
- * _printf - function that produce output according to a format
- * @format: character string
- *
- * Return: the number of characters printed
+ * _printf - Print and formate a string
+ * @format: String to print and to formated
+ * Return: (int)
  */
-
 int _printf(const char *format, ...)
 {
+	int i = 0, inc, count = 0;
+	char c1, c2;
 	va_list args;
-	int i = 0;
 
 	va_start(args, format);
-
-	while (*format)
+	while (format[i] != '\0')
 	{
-		if (*format == '%')
+		int printed = 0;
+		int (*f)(va_list args);
+
+		c1 = format[i];
+		inc = 1;
+
+		if (c1 == '%')
 		{
-			format++;
-			if (*format == '\0')
-				break;
-
-			if (*format == 'c')
+			c2 = format[i + 1];
+			if (c2 == '\0')
 			{
-				int c = va_arg(args, int);
-
-				_putchar(c);
-				i++;
+				va_end(args);
+				return (-1);
 			}
-			else if (*format == 'd' || *format == 'i')
+			f = get_format_function(c2);
+			if (f)
 			{
-				int d = va_arg(args, int);
-
-				if (d < 0)
-				{
-					_putchar('-');
-					d = d * -1;
-				}
-				if (d >= 10)
-				{
-					char digits[12];
-					int index = 0;
-
-					while (d > 0)
-					{
-						int digit = d % 10;
-
-						digits[index] = digit;
-						index++;
-						d = d / 10;
-					}
-					while (index > 0)
-					{
-						index--;
-						_putchar('0' + digits[index]);
-					}
-					i++;
-				} else
-				{
-					_putchar('0' + d);
-					i++;
-				}
-			}
-			else if (*format == 's')
-			{
-				char *s = va_arg(args, char *);
-
-				while (*s)
-				{
-					_putchar(*s);
-					s++;
-					i++;
-				}
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				i++;
-			}
-			else
-			{
-				_putchar('%');
-				_putchar(*format);
-				i++;
+				count += f(args);
+				inc = 2;
+				printed = 1;
 			}
 		}
-		else
+		if (printed == 0)
 		{
-			_putchar(*format);
-			i++;
+			count += 1;
+			_putchar(c1);
 		}
-		format++;
+		i += inc;
 	}
-
 	va_end(args);
-	return (i);
+	return (count);
+}
+
+/**
+ * get_format_function - function to return the function format
+ * @c2: character to check
+ * Return: Function or NULL
+ */
+int (*get_format_function(char c2))(va_list)
+{
+	int ii;
+	format_t ftypes[] = {
+		{"c", _printf_char},
+		{"s", _printf_string},
+		{"i", _printf_integer},
+		{"d", _printf_integer},
+		{"%", _printf_percent},
+		{"u", _printf_unsignedint},
+	};
+
+	for (ii = 0; ii < 6; ii++)
+	{
+		if (ftypes[ii].op[0] == c2)
+		{
+			return (ftypes[ii].f);
+		}
+	}
+	return (NULL);
 }
