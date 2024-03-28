@@ -63,7 +63,7 @@ int (*get_format_function(char c2))(va_list)
 		{"i", _printf_integer},
 		{"d", _printf_integer},
 		{"%", _printf_percent},
-        {"u", _printf_unsignedint},
+		{"u", _printf_unsignedint},
 	};
 
 	for (ii = 0; ii < 6; ii++)
